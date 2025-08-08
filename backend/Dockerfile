@@ -12,12 +12,12 @@ WORKDIR /app
 # system deps (if needed later)
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential curl && rm -rf /var/lib/apt/lists/*
 
-COPY backend/requirements.txt requirements.txt
+COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY backend/app ./app
-COPY backend/alembic.ini ./alembic.ini
-COPY backend/alembic ./alembic
+COPY app ./app
+COPY alembic.ini ./alembic.ini
+COPY alembic ./alembic
 
 RUN mkdir -p data
 
